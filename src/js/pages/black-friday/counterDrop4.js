@@ -11,7 +11,7 @@ console.log("localDateUtcDrop4", localDateUtcDrop4.format("YYYY/MM/DD HH:mm"));
 
 //SET COUNTER
 $("#dropCountdown_04").countdown(
-  localDateUtcDrop3.format("YYYY/MM/DD HH:mm"),
+  localDateUtcDrop4.format("YYYY/MM/DD HH:mm"),
   function (event) {
     $(this).html(
       event.strftime(

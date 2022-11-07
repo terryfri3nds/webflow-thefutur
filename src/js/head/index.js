@@ -38,6 +38,7 @@ globalThis.configItems = {
         "#bf21_ActiveBtn_01",
         "#DropScroll_Image01_Reveal",
         "#DropScroll_Image01_Reveal_Mobile",
+        "#bf21_Faq_01",
       ],
       hideItems: [
         "#bf21_dropdownCounter",
@@ -45,7 +46,9 @@ globalThis.configItems = {
         "#DropScroll_Image01_Mobile",
         "#bf21__dropdownCounter",
         "#bf21_WhatNextSection",
-        "#bf21_Faq_01",
+        "#bf21_Faq_02",
+        "#bf21_Faq_03",
+        "#bf21_Faq_ww",
       ],
       cssItems: [
         { id: ".b-nav-logo-embed", key: "color", value: "black" },
@@ -83,6 +86,7 @@ globalThis.configItems = {
         "#bf21_EndTag_01_Mobile",
         "#DropScroll_Image01_Reveal",
         "#DropScroll_Image01_Reveal_Mobile",
+        "#bf21_Faq_02",
       ],
       hideItems: [
         "#bf21__BetweenDrops",
@@ -93,6 +97,9 @@ globalThis.configItems = {
         "#DropScroll_Image02_Mobile",
         "#DropScroll_Image01",
         "#DropScroll_Image01_Mobile",
+        "#bf21_Faq_01",
+        "#bf21_Faq_03",
+        "#bf21_Faq_ww",
       ],
     },
     {
@@ -141,6 +148,7 @@ globalThis.configItems = {
         "#DropScroll_Image02_Reveal_Mobile",
         "#DropScroll_Image03_Reveal",
         "#DropScroll_Image03_Reveal_Mobile",
+        "#bf21_Faq_03",
       ],
       hideItems: [
         "#bf21_DropActive_02",
@@ -157,6 +165,9 @@ globalThis.configItems = {
         "#DropScroll_Image02_Mobile",
         "#DropScroll_Image01",
         "#DropScroll_Image01_Mobile",
+        "#bf21_Faq_01",
+        "#bf21_Faq_02",
+        "#bf21_Faq_ww",
       ],
     },
     {
