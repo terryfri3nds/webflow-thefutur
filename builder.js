@@ -3,6 +3,12 @@ require("esbuild").buildSync({
     "src/js/body/index.js",
     "src/js/head/index.js",
     "src/js/pages/black-friday/index.js",
+    "src/js/pages/black-friday/counterBeforeDrops.js",
+    "src/js/pages/black-friday/counterDrop1.js",
+    "src/js/pages/black-friday/counterDrop2.js",
+    "src/js/pages/black-friday/counterDrop3.js",
+    "src/js/pages/black-friday/counterBetween23.js",
+    "src/js/pages/black-friday/counterDrop4.js",
 
     "src/css/body/style.css",
     "src/css/head/style.css",
