@@ -1,11 +1,4 @@
-addEventListener("DOMContentLoaded", (event) => {
-  let pathname = window.location.href;
-  console.log(pathname);
-  if (pathname.includes("https://thefutur.com/black-friday"))
-    window.location.href = "/404";
-});
-
-$(document).ready(function () {
+/*$(document).ready(function () {
   App = {
     Run: function (globalDateTime) {
       for (i = 0; i < configItems.items.length; i++) {
@@ -39,31 +32,30 @@ $(document).ready(function () {
         if (nextIndex < configItems.items.length) {
           //Si hoy es mayor al siguiente elemento, no se hace nada y continuo con el otro elemento
           var nextItemDateFrom = new moment(nextItem.dateFrom).utc();
-          /*console.log(
-            "nextItemDateFrom",
-            nextItemDateFrom.format("YYYY-MM-DDTHH:mm Z")
-          );
-          */
+         
           if (dateCurrent > nextItemDateFrom) continue;
         }
 
         console.log("name", currentItem.name);
+        console.log("pathname", window.location.pathname);
+        let pathname = window.location.pathname;
+        if (
+          pathname === "/" ||
+          pathname.includes("black-friday") ||
+          pathname.includes("banners")
+        ) {
+          // Banner
 
-        //Actions
-        if (currentItem.showItems)
-          currentItem.showItems.forEach((key) => {
-            $(key).removeClass("hidden");
-          });
+          $("#bf-drop-displayname").html(currentItem.displayName);
 
-        if (currentItem.hideItems)
-          currentItem.hideItems.forEach((key) => {
-            $(key).addClass("hidden");
-          });
-
-        if (currentItem.cssItems)
-          currentItem.cssItems.forEach((items) => {
-            $(items.id).css(items.key, items.value);
-          });
+          if (currentItem.name == "Black Friday Sale") {
+            $("#bf_banner_bf").removeClass("hidden");
+            $("#bf_banner_drops").addClass("hidden");
+          } else if (currentItem.name.includes("drop")) {
+            $("#bf_banner_drops").removeClass("hidden");
+            $("#bf_banner_bf").addClass("hidden");
+          }
+        }
       }
     },
   };
@@ -85,13 +77,5 @@ $(document).ready(function () {
     console.log($.urlParam("timetravel"));
     App.Run($.urlParam("timetravel"));
   }
-
-  let sectionsVisible = 0;
-  $(".js-number").each(function () {
-    const isVisible = $(this).is(":visible");
-    if (isVisible) {
-      sectionsVisible += 1;
-      $(this).html(`0${sectionsVisible}`);
-    }
-  });
 });
+*/

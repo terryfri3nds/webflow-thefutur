@@ -42,5 +42,3 @@ else
   );
 
 document.body.appendChild(cssScript);
-
-
