@@ -2,19 +2,19 @@
 var tz = moment.tz.guess(true);
 
 //CONVERT TO UTC
-var utcDate = new moment(datesBF.drop2).utc();
+var utcDate = new moment(datesEndCounterBF.drop2).utc();
 
 //CONVERT TO LOCAL TIMEZONE
-let localDateUtcBeforeDrop = utcDate.tz(tz);
+let localDateUtcDrop2 = utcDate.tz(tz);
 
 console.log(
-  "localDateUtcBeforeDrop",
-  localDateUtcBeforeDrop.format("YYYY/MM/DD HH:mm")
+  "localDateUtcDrop2",
+  localDateUtcDrop2.format("YYYY/MM/DD HH:mm")
 );
 
 //SET COUNTER
-$("#getting-started-bf21-before-drops").countdown(
-  localDateUtcBeforeDrop.format("YYYY/MM/DD HH:mm"),
+$("#dropCountdown_02").countdown(
+  localDateUtcDrop2.format("YYYY/MM/DD HH:mm"),
   function (event) {
     $(this).html(
       event.strftime(
