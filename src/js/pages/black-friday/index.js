@@ -1,13 +1,14 @@
-addEventListener("DOMContentLoaded", (event) => {
+/*addEventListener("DOMContentLoaded", (event) => {
   let pathname = window.location.href;
   console.log(pathname);
   if (pathname.includes("https://thefutur.com/black-friday"))
     window.location.href = "/404";
-});
+});*/
 
 $(document).ready(function () {
   App = {
     Run: function (globalDateTime) {
+      console.log("start process");
       for (i = 0; i < configItems.items.length; i++) {
         var currentItem = configItems.items[i];
         const currentIndex = configItems.items.indexOf(currentItem);
@@ -81,6 +82,9 @@ $(document).ready(function () {
 
   if ($.urlParam("timetravel") == null) {
     App.Run();
+    setInterval(() => {
+      App.Run();
+    }, 10000);
   } else {
     console.log($.urlParam("timetravel"));
     App.Run($.urlParam("timetravel"));

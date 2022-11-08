@@ -1,12 +1,17 @@
+let pathname = window.location.href;
+console.log(pathname);
+if (pathname.includes("https://thefutur.com/black-friday"))
+  window.location.href = "/404";
+
 /* Horas de comienzo de los drops */
 globalThis.datesBF = {
-  drop1: "2022-11-15T14:00:00+0000",
-  drop2: "2022-11-17T14:00:00+0000",
-  drop23: "2022-11-19T14:00:00+0000",
-  drop3: "2022-11-21T14:00:00+0000",
-  dropBFS: "2022-11-23T14:00:00+0000",
-  drop4: "2022-11-28T14:00:00+0000",
-  dropBFPS: "2022-12-01T14:00:00+0000",
+  drop1: "2022-11-15T15:00:00+0000",
+  drop2: "2022-11-17T15:00:00+0000",
+  drop23: "2022-11-19T15:00:00+0000",
+  drop3: "2022-11-21T15:00:00+0000",
+  dropBFS: "2022-11-23T15:00:00+0000",
+  drop4: "2022-11-28T15:00:00+0000",
+  dropBFPS: "2022-12-01T15:00:00+0000",
 };
 
 console.log("datesBF", datesBF);
@@ -17,8 +22,8 @@ globalThis.datesEndCounterBF = {
   drop2: datesBF.drop23,
   drop23: datesBF.drop3,
   drop3: datesBF.dropBFS,
-  dropBFS: "2022-11-30T14:00:00+0000",
-  drop4: "2022-11-30T14:00:00+0000",
+  dropBFS: "2022-11-30T15:00:00+0000",
+  drop4: "2022-11-30T15:00:00+0000",
 };
 
 console.log("datesEndCounterBF", datesEndCounterBF);
@@ -49,6 +54,7 @@ globalThis.configItems = {
         "#bf21_Faq_02",
         "#bf21_Faq_03",
         "#bf21_Faq_ww",
+        "#main-nav",
       ],
       cssItems: [
         { id: ".b-nav-logo-embed", key: "color", value: "black" },
@@ -87,6 +93,7 @@ globalThis.configItems = {
         "#DropScroll_Image01_Reveal",
         "#DropScroll_Image01_Reveal_Mobile",
         "#bf21_Faq_02",
+        "#main-nav",
       ],
       hideItems: [
         "#bf21__BetweenDrops",
@@ -123,6 +130,7 @@ globalThis.configItems = {
         "#bf21_ActiveTag_01_Mobile",
         "#bf21_ActiveBtn_01",
         "#bf21_WhatNextSection",
+        "#main-nav",
       ],
     },
     {
@@ -168,6 +176,7 @@ globalThis.configItems = {
         "#bf21_Faq_01",
         "#bf21_Faq_02",
         "#bf21_Faq_ww",
+        "#main-nav",
       ],
     },
     {
@@ -326,3 +335,20 @@ globalThis.configItems = {
 };
 
 console.log("configItems", configItems);
+
+globalThis.itemsPopUp = {
+  items: [
+    {
+      /* Show Pop UP */
+      displayName: "BF",
+      name: "dropBF",
+      dateFrom: "2022-11-08T13:00:00+0000",
+    },
+    {
+      /* Not Show Pop UP */
+      displayName: "BF End",
+      name: "dropEnd",
+      dateFrom: "2022-11-30T05:00:00+0000",
+    },
+  ],
+};
