@@ -10,7 +10,10 @@ require("esbuild").buildSync({
     "src/js/pages/black-friday/counterBetween23.js",
     "src/js/pages/black-friday/counterDrop4.js",
     "src/js/pages/black-friday/counterBF.js",
-
+    "src/js/pages/black-friday/banners.js",
+    "src/js/pages/black-friday/popup.js",
+    "src/js/pages/black-friday/counterBannerBF.js",
+    
     "src/css/body/style.css",
     "src/css/head/style.css",
   ],

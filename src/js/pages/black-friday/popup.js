@@ -1,11 +1,34 @@
+
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 $(document).ready(function () {
   App = {
     Run: function (globalDateTime) {
-      for (i = 0; i < configItems.items.length; i++) {
-        var currentItem = configItems.items[i];
-        const currentIndex = configItems.items.indexOf(currentItem);
+      for (i = 0; i < itemsPopUp.items.length; i++) {
+        var currentItem = itemsPopUp.items[i];
+        const currentIndex = itemsPopUp.items.indexOf(currentItem);
         const nextIndex = currentIndex + 1;
-        var nextItem = configItems.items[currentIndex + 1];
+        var nextItem = itemsPopUp.items[currentIndex + 1];
 
         var dateCurrent = new moment(moment(), "YYYY-MM-DDTHH:mm").utc(); //convert local to UTC 0
         //var dateCurrent3 = new moment(globalDateTime, "YYYY-MM-DDTHH:mm").utc();
@@ -37,16 +60,34 @@ $(document).ready(function () {
         }
 
         console.log("name", currentItem.name);
-        console.log("pathname", window.location.pathname);
-        let pathname = window.location.pathname;
+       
+        var pathname = window.location.pathname.split( '/' );
+        console.log("pathname", pathname[1]);
         if (
-          pathname === "/" ||
-          pathname.includes("black-friday") ||
-          pathname.includes("banners")
+          pathname[1] !== "black-friday" &&
+          pathname[1] !== "shop" &&
+          pathname[1] !== "animation-for-designers" &&
+          pathname[1] !== "illustration-for-designers" &&
+          pathname[1] !== "brand-strategy-fundamentals" &&
+          pathname[1] !== "typography-01" &&
+          pathname[1] !== "lettering" &&
+          pathname[1] !== "positioning-and-lead-gen" &&
+          pathname[1] !== "carousel-design" &&
+          pathname[1] !== "design-thinking-guidebook" &&
+          pathname[1] !== "instagram-workshop"
         ) {
+          
           // PopUp BF
-          if (currentItem.name == "Black Friday Sale") {
-            $(".bf-popup-wrapper").addClass("active");
+          if (currentItem.name == "dropBF") {
+
+              console.log("IF bfpopup: ", getCookie("bfpopup"))
+              if (!getCookie("bfpopup"))
+              {
+                  
+                  $(".bf-popup-wrapper").addClass("active");
+                  setCookie("bfpopup", true, 1);
+                  console.log("ON bfpopup: ", getCookie("bfpopup"))
+              }
           }
         }
       }

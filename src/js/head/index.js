@@ -9,7 +9,7 @@ globalThis.datesBF = {
   drop2: "2022-11-17T15:00:00+0000",
   drop23: "2022-11-19T15:00:00+0000",
   drop3: "2022-11-21T15:00:00+0000",
-  dropBFS: "2022-11-06T15:00:00+0000",
+  dropBFS: "2022-11-23T15:00:00+0000",
   drop4: "2022-11-28T15:00:00+0000",
   dropBFPS: "2022-12-01T15:00:00+0000",
 };
@@ -342,7 +342,7 @@ globalThis.itemsPopUp = {
       /* Show Pop UP */
       displayName: "BF",
       name: "dropBF",
-      dateFrom: "2022-11-06T15:00:00+0000",
+      dateFrom: "2022-11-08T13:00:00+0000",
     },
     {
       /* Not Show Pop UP */
