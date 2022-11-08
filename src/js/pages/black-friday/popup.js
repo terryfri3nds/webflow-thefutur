@@ -22,6 +22,16 @@ function getCookie(cname) {
 }
 
 $(document).ready(function () {
+
+
+  $(".bf-popup-close").on('click', function(){
+    
+      $("body").removeClass("overflow-hidden");
+
+  });
+
+
+
   App = {
     Run: function (globalDateTime) {
       for (i = 0; i < itemsPopUp.items.length; i++) {
@@ -85,6 +95,8 @@ $(document).ready(function () {
               {
                   
                   $(".bf-popup-wrapper").addClass("active");
+                  $("body").addClass("overflow-hidden");
+                 
                   setCookie("bfpopup", true, 1);
                   console.log("ON bfpopup: ", getCookie("bfpopup"))
               }
