@@ -1,14 +1,6 @@
-/*addEventListener("DOMContentLoaded", (event) => {
-  let pathname = window.location.href;
-  console.log(pathname);
-  if (pathname.includes("https://thefutur.com/black-friday"))
-    window.location.href = "/404";
-});*/
-
 $(document).ready(function () {
   App = {
     Run: function (globalDateTime) {
-      console.log("start process");
       for (i = 0; i < configItems.items.length; i++) {
         var currentItem = configItems.items[i];
         const currentIndex = configItems.items.indexOf(currentItem);
@@ -40,31 +32,23 @@ $(document).ready(function () {
         if (nextIndex < configItems.items.length) {
           //Si hoy es mayor al siguiente elemento, no se hace nada y continuo con el otro elemento
           var nextItemDateFrom = new moment(nextItem.dateFrom).utc();
-          /*console.log(
-            "nextItemDateFrom",
-            nextItemDateFrom.format("YYYY-MM-DDTHH:mm Z")
-          );
-          */
+
           if (dateCurrent > nextItemDateFrom) continue;
         }
 
         console.log("name", currentItem.name);
-
-        //Actions
-        if (currentItem.showItems)
-          currentItem.showItems.forEach((key) => {
-            $(key).removeClass("hidden");
-          });
-
-        if (currentItem.hideItems)
-          currentItem.hideItems.forEach((key) => {
-            $(key).addClass("hidden");
-          });
-
-        if (currentItem.cssItems)
-          currentItem.cssItems.forEach((items) => {
-            $(items.id).css(items.key, items.value);
-          });
+        console.log("pathname", window.location.pathname);
+        let pathname = window.location.pathname;
+        if (
+          pathname === "/" ||
+          pathname.includes("black-friday") ||
+          pathname.includes("banners")
+        ) {
+          // PopUp BF
+          if (currentItem.name == "Black Friday Sale") {
+            $(".bf-popup-wrapper").addClass("active");
+          }
+        }
       }
     },
   };
@@ -82,20 +66,8 @@ $(document).ready(function () {
 
   if ($.urlParam("timetravel") == null) {
     App.Run();
-    setInterval(() => {
-      App.Run();
-    }, 10000);
   } else {
     console.log($.urlParam("timetravel"));
     App.Run($.urlParam("timetravel"));
   }
-
-  let sectionsVisible = 0;
-  $(".js-number").each(function () {
-    const isVisible = $(this).is(":visible");
-    if (isVisible) {
-      sectionsVisible += 1;
-      $(this).html(`0${sectionsVisible}`);
-    }
-  });
 });

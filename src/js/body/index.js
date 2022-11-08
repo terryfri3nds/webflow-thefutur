@@ -1,3 +1,1 @@
 /* empty */
-
-alert("Hello")
