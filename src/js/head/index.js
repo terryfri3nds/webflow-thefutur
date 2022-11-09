@@ -51,9 +51,6 @@ globalThis.configItems = {
         "#DropScroll_Image01_Mobile",
         "#bf21__dropdownCounter",
         "#bf21_WhatNextSection",
-        "#bf21_Faq_02",
-        "#bf21_Faq_03",
-        "#bf21_Faq_ww",
         "#main-nav",
       ],
       cssItems: [
@@ -92,7 +89,7 @@ globalThis.configItems = {
         "#bf21_EndTag_01_Mobile",
         "#DropScroll_Image01_Reveal",
         "#DropScroll_Image01_Reveal_Mobile",
-        "#bf21_Faq_02",
+        "#bf21_Faq_01",
         "#main-nav",
       ],
       hideItems: [
@@ -104,9 +101,6 @@ globalThis.configItems = {
         "#DropScroll_Image02_Mobile",
         "#DropScroll_Image01",
         "#DropScroll_Image01_Mobile",
-        "#bf21_Faq_01",
-        "#bf21_Faq_03",
-        "#bf21_Faq_ww",
       ],
     },
     {
@@ -121,6 +115,7 @@ globalThis.configItems = {
         "#bf21_GoneBtn_01",
         "#DropScroll_Image01_Reveal",
         "#DropScroll_Image01_Reveal_Mobile",
+        "bf21_Faq_01"
       ],
       hideItems: [
         "#DropScroll_Image01",
@@ -156,7 +151,7 @@ globalThis.configItems = {
         "#DropScroll_Image02_Reveal_Mobile",
         "#DropScroll_Image03_Reveal",
         "#DropScroll_Image03_Reveal_Mobile",
-        "#bf21_Faq_03",
+        "#bf21_Faq_01",
       ],
       hideItems: [
         "#bf21_DropActive_02",
@@ -173,9 +168,6 @@ globalThis.configItems = {
         "#DropScroll_Image02_Mobile",
         "#DropScroll_Image01",
         "#DropScroll_Image01_Mobile",
-        "#bf21_Faq_01",
-        "#bf21_Faq_02",
-        "#bf21_Faq_ww",
         "#main-nav",
       ],
     },
@@ -187,7 +179,7 @@ globalThis.configItems = {
       showItems: [
         "#bf21_MainSaleEvent",
         "#bf21_Courses",
-        "#bf21_Faq_02",
+        "#bf21_Faq_01",
         "#bf21_EndTag_01",
         "#bf21_GoneBtn_01",
         "#bf21_EndTag_01_Mobile",
@@ -208,6 +200,7 @@ globalThis.configItems = {
         "#DropScroll_Image03_Reveal_Mobile",
         "#DropScroll_Image04_Reveal",
         "#DropScroll_Image04_Reveal_Mobile",
+        
       ],
       hideItems: [
         "#bf21__BetweenDrops",
@@ -217,7 +210,6 @@ globalThis.configItems = {
         "#bf21_ActiveTag_04",
         "#bf21_ActiveTag_04_Mobile",
         "#bf21_ActiveBtn_04",
-        "#bf21_Faq_01",
         "#DropScroll_Image04",
         "#DropScroll_Image04_Mobile",
         "#DropScroll_Image03",
@@ -256,6 +248,7 @@ globalThis.configItems = {
         "#DropScroll_Image03_Reveal_Mobile",
         "#DropScroll_Image04_Reveal",
         "#DropScroll_Image04_Reveal_Mobile",
+        "bf21_Faq_01"
       ],
       hideItems: [
         "#bf21_stickynav_Drop01",
@@ -329,7 +322,7 @@ globalThis.configItems = {
       name: "Black Fridar Post Sale Page",
       dateFrom: datesBF.dropBFPS,
       showItems: ["#bf21__PostSale"],
-      hideItems: ["#bf21_BeforeDrops", "#bf21drops", "#bf21_Faq_01"],
+      hideItems: ["#bf21_BeforeDrops", "#bf21drops"],
     },
   ],
 };
@@ -342,7 +335,7 @@ globalThis.itemsPopUp = {
       /* Show Pop UP */
       displayName: "BF",
       name: "dropBF",
-      dateFrom: "2022-11-08T13:00:00+0000",
+      dateFrom: "2022-11-10T15:00:00+0000",
     },
     {
       /* Not Show Pop UP */
