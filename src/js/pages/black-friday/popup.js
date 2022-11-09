@@ -30,8 +30,6 @@ $(document).ready(function () {
 
   });
 
-
-
   App = {
     Run: function (globalDateTime) {
       for (i = 0; i < itemsPopUp.items.length; i++) {
