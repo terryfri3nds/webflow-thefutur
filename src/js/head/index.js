@@ -1,17 +1,17 @@
-let pathname = window.location.href;
+/*let pathname = window.location.href;
 console.log(pathname);
 if (pathname.includes("https://thefutur.com/black-friday"))
   window.location.href = "/404";
-
+*/
 /* Horas de comienzo de los drops */
 globalThis.datesBF = {
-  drop1: "2022-11-15T15:00:00+0000",
-  drop2: "2022-11-17T15:00:00+0000",
-  drop23: "2022-11-19T15:00:00+0000",
-  drop3: "2022-11-21T15:00:00+0000",
-  dropBFS: "2022-11-23T15:00:00+0000",
-  drop4: "2022-11-28T15:00:00+0000",
-  dropBFPS: "2022-12-01T15:00:00+0000",
+  drop1: "2022-11-15T14:30:00+0000",
+  drop2: "2022-11-17T14:30:00+0000",
+  drop23: "2022-11-19T14:30:00+0000",
+  drop3: "2022-11-21T14:30:00+0000",
+  dropBFS: "2022-11-23T14:30:00+0000",
+  drop4: "2022-11-28T14:30:00+0000",
+  dropBFPS: "2022-12-01T14:30:00+0000",
 };
 
 console.log("datesBF", datesBF);
@@ -22,8 +22,8 @@ globalThis.datesEndCounterBF = {
   drop2: datesBF.drop23,
   drop23: datesBF.drop3,
   drop3: datesBF.dropBFS,
-  dropBFS: "2022-11-30T15:00:00+0000",
-  drop4: "2022-11-30T15:00:00+0000",
+  dropBFS: "2022-11-30T14:30:00+0000",
+  drop4: "2022-11-30T14:30:00+0000",
 };
 
 console.log("datesEndCounterBF", datesEndCounterBF);
@@ -44,6 +44,7 @@ globalThis.configItems = {
         "#DropScroll_Image01_Reveal",
         "#DropScroll_Image01_Reveal_Mobile",
         "#bf21_Faq_01",
+        // "bf21_PaymentBtn_01"
       ],
       hideItems: [
         "#bf21_dropdownCounter",
@@ -108,23 +109,15 @@ globalThis.configItems = {
       displayName: "In between 2 and 3",
       name: "In between 2 and 3",
       dateFrom: datesBF.drop23,
-      showItems: [
-        "#bf21_BetweenDrops",
-        "#bf21_EndTag_01",
-        "#bf21_EndTag_01_Mobile",
-        "#bf21_GoneBtn_01",
-        "#DropScroll_Image01_Reveal",
-        "#DropScroll_Image01_Reveal_Mobile",
-        "bf21_Faq_01"
-      ],
+      showItems: ["#bf21_BeforeDrops", "#bf21drops", "bf21_Faq_01"],
       hideItems: [
-        "#DropScroll_Image01",
-        "#bf21_BeforeDrops",
-        "#bf21_DropActive_01",
-        "#bf21_ActiveTag_01",
-        "#bf21_ActiveTag_01_Mobile",
-        "#bf21_ActiveBtn_01",
-        "#bf21_WhatNextSection",
+        "#bf21_BetweenDrops",
+        "#bf21__WinterWorkshops_indrop",
+        "#bf21__WinterWorkshops",
+        "#bf21__PostSale",
+        "#bf21_MainSaleEvent",
+        "#bf21__SaleExtended",
+        "#bf21_Courses",
         "#main-nav",
       ],
     },
@@ -200,7 +193,6 @@ globalThis.configItems = {
         "#DropScroll_Image03_Reveal_Mobile",
         "#DropScroll_Image04_Reveal",
         "#DropScroll_Image04_Reveal_Mobile",
-        
       ],
       hideItems: [
         "#bf21__BetweenDrops",
@@ -248,7 +240,7 @@ globalThis.configItems = {
         "#DropScroll_Image03_Reveal_Mobile",
         "#DropScroll_Image04_Reveal",
         "#DropScroll_Image04_Reveal_Mobile",
-        "bf21_Faq_01"
+        "bf21_Faq_01",
       ],
       hideItems: [
         "#bf21_stickynav_Drop01",
@@ -335,7 +327,7 @@ globalThis.itemsPopUp = {
       /* Show Pop UP */
       displayName: "BF",
       name: "dropBF",
-      dateFrom: "2022-11-10T15:00:00+0000",
+      dateFrom: "2022-11-10T10:30:00+0000",
     },
     {
       /* Not Show Pop UP */
