@@ -53,6 +53,7 @@ globalThis.configItems = {
         "#bf21__dropdownCounter",
         "#bf21_WhatNextSection",
         "#main-nav",
+        "bf21_ActiveTag_01_Mobile",
       ],
       cssItems: [
         { id: ".b-nav-logo-embed", key: "color", value: "black" },
