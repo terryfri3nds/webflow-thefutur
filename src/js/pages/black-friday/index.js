@@ -65,6 +65,8 @@ $(document).ready(function () {
           currentItem.cssItems.forEach((items) => {
             $(items.id).css(items.key, items.value);
           });
+
+        $("html, body").animate({ scrollTop: 0 }, 1000);
       }
     },
   };
@@ -84,7 +86,7 @@ $(document).ready(function () {
     App.Run();
     setInterval(() => {
       App.Run();
-    }, 10000);
+    }, 5000);
   } else {
     console.log($.urlParam("timetravel"));
     App.Run($.urlParam("timetravel"));
