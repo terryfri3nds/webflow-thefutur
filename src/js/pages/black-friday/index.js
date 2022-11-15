@@ -66,7 +66,7 @@ $(document).ready(function () {
             $(items.id).css(items.key, items.value);
           });
 
-        $("html, body").animate({ scrollTop: 0 }, 1000);
+        // $("html, body").animate({ scrollTop: 0 }, 1000);
       }
     },
   };
