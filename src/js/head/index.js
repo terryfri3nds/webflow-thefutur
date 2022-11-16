@@ -4,6 +4,18 @@ if (pathname.includes("https://thefutur.com/black-friday"))
   window.location.href = "/404";
 */
 /* Horas de comienzo de los drops */
+/*
+globalThis.datesBF = {
+  drop1: "2022-11-15T13:30:00+0000",
+  drop2: "2022-11-16T14:32:00+0000",
+  drop23: "2022-11-16T14:34:30+0000",
+  drop3: "2022-11-16T14:38:00+0000",
+  dropBFS: "2022-11-23T13:30:00+0000",
+  drop4: "2022-11-28T13:30:00+0000",
+  dropBFPS: "2022-12-01T13:30:00+0000",
+};
+*/
+
 globalThis.datesBF = {
   drop1: "2022-11-15T13:30:00+0000",
   drop2: "2022-11-17T13:30:00+0000",
@@ -43,6 +55,7 @@ globalThis.configItems = {
         "#DropScroll_Image01_Reveal",
         "#DropScroll_Image01_Reveal_Mobile",
         "#bf21_Faq_01",
+        "#bf22_CounterText_Between-Drop",
         // "bf21_PaymentBtn_01"
       ],
       hideItems: [
@@ -52,7 +65,8 @@ globalThis.configItems = {
         "#bf21__dropdownCounter",
         "#bf21_WhatNextSection",
         "#main-nav",
-        "bf21_ActiveTag_01_Mobile",
+        "#bf21_ActiveTag_01_Mobile",
+        "#bf21_GoneBtn_01",
       ],
       cssItems: [
         { id: ".b-nav-logo-embed", key: "color", value: "black" },
@@ -77,7 +91,6 @@ globalThis.configItems = {
       name: "drop2",
       dateFrom: datesBF.drop2,
       showItems: [
-        "#bf21_BeforeDrops",
         "#bf21_DropActive_02",
         "#bf21_stickynav_Drop02",
         "#bf21_ActiveTag_02",
@@ -85,15 +98,20 @@ globalThis.configItems = {
         "#bf21_ActiveBtn_02",
         "#DropScroll_Image02_Reveal",
         "#DropScroll_Image02_Reveal_Mobile",
-        "#bf21_EndTag_01",
+        //"#bf21_EndTag_01",
         "#bf21_GoneBtn_01",
         //"#bf21_EndTag_01_Mobile",
         "#DropScroll_Image01_Reveal",
         "#DropScroll_Image01_Reveal_Mobile",
         "#bf21_Faq_01",
         "#main-nav",
+        "#bf21__dropdownCounter",
+        "#bf22_CounterText_Between-Drop",
       ],
       hideItems: [
+        "#bf21_DropActive_01",
+        "#bf21_ActiveBtn_01",
+        //"#bf21_BeforeDrops",
         "#bf21__BetweenDrops",
         "#bf21_stickynav_Drop01",
         "#bf21__dropdownCounter",
@@ -106,11 +124,25 @@ globalThis.configItems = {
     },
     {
       /* In between drop 1 and 2 */
-      displayName: "In between 2 and 3",
+      displayName: "Announcement",
       name: "In between 2 and 3",
       dateFrom: datesBF.drop23,
-      showItems: ["#bf21_BeforeDrops", "#bf21drops", "bf21_Faq_01"],
+      showItems: [
+        "#bf21_BeforeDrops",
+        "#bf21drops",
+        "#DropScroll_Image01_Reveal",
+        "#DropScroll_Image01_Reveal_Mobile",
+        "#DropScroll_Image02_Reveal",
+        "#DropScroll_Image02_Reveal_Mobile",
+        "#bf21_GoneBtn_01",
+        "#bf21_GoneBtn_02",
+        "bf21_Faq_01",
+        "#bf22_CounterText_Before-Drop",
+      ],
       hideItems: [
+        "#bf21_DropActive_02",
+        "#bf21_ActiveBtn_01",
+        "#bf21_ActiveBtn_02",
         "#bf21_BetweenDrops",
         "#bf21__WinterWorkshops_indrop",
         "#bf21__WinterWorkshops",
@@ -119,6 +151,10 @@ globalThis.configItems = {
         "#bf21__SaleExtended",
         "#bf21_Courses",
         "#main-nav",
+        "#DropScroll_Image01",
+        "#DropScroll_Image01_Mobile",
+        "#DropScroll_Image02",
+        "#DropScroll_Image02_Mobile",
       ],
     },
     {
@@ -132,10 +168,10 @@ globalThis.configItems = {
         "#bf21_ActiveTag_03",
         //"#bf21_ActiveTag_03_Mobile",
         "#bf21_ActiveBtn_03",
-        "#bf21_EndTag_01",
+        //"#bf21_EndTag_01",
         "#bf21_GoneBtn_01",
         //"#bf21_EndTag_01_Mobile",
-        "#bf21_EndTag_02",
+        //"#bf21_EndTag_02",
         "#bf21_GoneBtn_02",
         // "#bf21_EndTag_02_Mobile",
         "#DropScroll_Image01_Reveal",
@@ -145,8 +181,10 @@ globalThis.configItems = {
         "#DropScroll_Image03_Reveal",
         "#DropScroll_Image03_Reveal_Mobile",
         "#bf21_Faq_01",
+        "#bf22_CounterText_Between-Drop",
       ],
       hideItems: [
+        //"#bf21_BeforeDrops",
         "#bf21_DropActive_02",
         "#bf21_stickynav_Drop01",
         "#bf21_stickynav_Drop02",
@@ -162,6 +200,7 @@ globalThis.configItems = {
         "#DropScroll_Image01",
         "#DropScroll_Image01_Mobile",
         "#main-nav",
+        "#bf22_CounterText_Before-Drop",
       ],
     },
     {

@@ -2,7 +2,7 @@
 var tz = moment.tz.guess(true);
 
 //CONVERT TO UTC
-var utcDate = new moment(datesBF.drop1).utc();
+var utcDate = new moment(datesBF.drop3).utc();
 
 //CONVERT TO LOCAL TIMEZONE
 let localDateUtcBeforeDrop = utcDate.tz(tz);

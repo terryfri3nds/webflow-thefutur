@@ -50,6 +50,8 @@ $(document).ready(function () {
 
         console.log("name", currentItem.name);
 
+        //set title page
+        document.title = "The Futur - " + currentItem.displayName;
         //Actions
         if (currentItem.showItems)
           currentItem.showItems.forEach((key) => {
