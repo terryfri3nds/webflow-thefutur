@@ -18,12 +18,12 @@ globalThis.datesBF = {
 
 globalThis.datesBF = {
   drop1: "2022-11-15T13:30:00+0000",
-  drop2: "2022-11-17T17:30:00+0000",
-  drop23: "2022-11-19T17:30:00+0000",
-  drop3: "2022-11-21T17:30:00+0000",
-  dropBFS: "2022-11-23T17:30:00+0000",
-  drop4: "2022-11-28T17:30:00+0000",
-  dropBFPS: "2022-12-01T17:30:00+0000",
+  drop2: "2022-11-17T14:30:00+0000",
+  drop23: "2022-11-19T14:30:00+0000",
+  drop3: "2022-11-21T14:30:00+0000",
+  dropBFS: "2022-11-23T14:30:00+0000",
+  drop4: "2022-11-28T14:30:00+0000",
+  dropBFPS: "2022-12-01T14:30:00+0000",
 };
 
 console.log("datesBF", datesBF);
@@ -34,8 +34,8 @@ globalThis.datesEndCounterBF = {
   drop2: datesBF.drop23,
   drop23: datesBF.drop3,
   drop3: datesBF.dropBFS,
-  dropBFS: "2022-11-30T13:30:00+0000",
-  drop4: "2022-11-30T13:30:00+0000",
+  dropBFS: "2022-11-30T14:30:00+0000",
+  drop4: "2022-11-30T14:30:00+0000",
 };
 
 console.log("datesEndCounterBF", datesEndCounterBF);
