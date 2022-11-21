@@ -125,7 +125,7 @@ globalThis.configItems = {
     {
       /* In between drop 1 and 2 */
       displayName: "Announcement",
-      name: "In between 2 and 3",
+      name: "drop In between 2 and 3",
       dateFrom: datesBF.drop23,
       showItems: [
         "#bf21_BeforeDrops",
@@ -155,6 +155,7 @@ globalThis.configItems = {
         "#DropScroll_Image01_Mobile",
         "#DropScroll_Image02",
         "#DropScroll_Image02_Mobile",
+        "#bf22_CounterText_Between-Drop",
       ],
     },
     {
