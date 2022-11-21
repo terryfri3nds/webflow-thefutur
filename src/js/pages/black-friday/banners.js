@@ -81,6 +81,7 @@ $(document).ready(function () {
         // Banner
 
         $("#bf-drop-displayname").html(currentItem.displayName);
+        $(".bf-drop-displayname").html(currentItem.displayName);
 
         if (currentItem.name == "Black Friday Sale") {
           $(".bf-section-banners").removeClass("hidden");
