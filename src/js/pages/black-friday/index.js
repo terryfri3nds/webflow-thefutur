@@ -55,6 +55,7 @@ $(document).ready(function () {
         //Actions
         if (currentItem.showItems)
           currentItem.showItems.forEach((key) => {
+            console.log(key);
             $(key).removeClass("hidden");
           });
 
