@@ -202,6 +202,7 @@ globalThis.configItems = {
         "#DropScroll_Image01_Mobile",
         "#main-nav",
         "#bf22_CounterText_Before-Drop",
+        "#bf22_SaleTitle",
       ],
     },
     {
@@ -359,10 +360,11 @@ globalThis.configItems = {
       },*/
     {
       /* Black Fridar Post Sale Page */
+      displayName: "Black Fridar Post Sale Page",
       name: "Black Fridar Post Sale Page",
       dateFrom: datesBF.dropBFPS,
-      showItems: ["#bf21__PostSale"],
-      hideItems: ["#bf21_BeforeDrops", "#bf21drops"],
+      showItems: ["#bf21__PostSale", "#bf22_AfterSaleTitle", "#bf21_Courses"],
+      hideItems: ["#bf21_BeforeDrops", "#bf21drops", "#bf22_SaleTitle"],
     },
   ],
 };
@@ -381,7 +383,7 @@ globalThis.itemsPopUp = {
       /* Not Show Pop UP */
       displayName: "BF End",
       name: "dropEnd",
-      dateFrom: "2022-11-30T05:00:00+0000",
+      dateFrom: "2022-12-02T05:00:00+0000",
     },
   ],
 };
