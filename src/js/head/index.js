@@ -233,6 +233,7 @@ globalThis.configItems = {
         "#DropScroll_Image03_Reveal_Mobile",
         "#DropScroll_Image04_Reveal",
         "#DropScroll_Image04_Reveal_Mobile",
+        "#main-nav",
       ],
       hideItems: [
         "#bf21__BetweenDrops",
@@ -250,12 +251,14 @@ globalThis.configItems = {
         "#DropScroll_Image02_Mobile",
         "#DropScroll_Image01",
         "#DropScroll_Image01_Mobile",
+        ".bf-section-banners",
+        //"#bf21_MainSaleEvent",
       ],
     },
     {
       /* Drop 4 page */
       displayName: "The Workshop Vault…",
-      name: "drop4",
+      name: "The Workshop",
       dateFrom: datesBF.drop4,
       showItems: [
         "#bf21_DropActive_04",
@@ -280,7 +283,9 @@ globalThis.configItems = {
         "#DropScroll_Image03_Reveal_Mobile",
         "#DropScroll_Image04_Reveal",
         "#DropScroll_Image04_Reveal_Mobile",
-        "bf21_Faq_01",
+        "#bf21_Faq_01",
+        "#main-nav",
+        //"#bf21_MainSaleEvent",
       ],
       hideItems: [
         "#bf21_stickynav_Drop01",
@@ -296,6 +301,9 @@ globalThis.configItems = {
         "#DropScroll_Image02_Mobile",
         "#DropScroll_Image01",
         "#DropScroll_Image01_Mobile",
+        "#bf21drops",
+        "#bf21_BeforeDrops",
+        ".bf-section-banners",
       ],
       cssItems: [
         { id: ".b-nav-logo-embed", key: "color", value: "black" },
