@@ -83,7 +83,10 @@ $(document).ready(function () {
         $("#bf-drop-displayname").html(currentItem.displayName);
         $(".bf-drop-displayname").html(currentItem.displayName);
 
-        if (currentItem.name == "Black Friday Sale") {
+        if (
+          currentItem.name == "Black Friday Sale" ||
+          currentItem.name == "The Workshop"
+        ) {
           $(".bf-section-banners").removeClass("hidden");
           $("#bf_banner_bf").removeClass("hidden");
           $("#bf_banner_drops").addClass("hidden");
