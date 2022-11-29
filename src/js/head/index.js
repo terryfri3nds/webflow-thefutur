@@ -35,7 +35,7 @@ globalThis.datesEndCounterBF = {
   drop23: datesBF.drop3,
   drop3: datesBF.dropBFS,
   dropBFS: "2022-11-30T14:30:00+0000",
-  drop4: "2022-11-30T14:30:00+0000",
+  drop4: "2022-12-02T07:59:00+0000",
 };
 
 console.log("datesEndCounterBF", datesEndCounterBF);
@@ -383,7 +383,7 @@ globalThis.itemsPopUp = {
       /* Not Show Pop UP */
       displayName: "BF End",
       name: "dropEnd",
-      dateFrom: "2022-12-02T05:00:00+0000",
+      dateFrom: "2022-11-30T14:30:00+0000",
     },
   ],
 };
