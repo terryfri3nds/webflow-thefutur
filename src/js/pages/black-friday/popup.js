@@ -1,17 +1,16 @@
-
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  let expires = "expires="+d.toUTCString();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  let expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 function getCookie(cname) {
   let name = cname + "=";
-  let ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
+  let ca = document.cookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
-    while (c.charAt(0) == ' ') {
+    while (c.charAt(0) == " ") {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
@@ -22,12 +21,8 @@ function getCookie(cname) {
 }
 
 $(document).ready(function () {
-
-
-  $(".bf-popup-close").on('click', function(){
-    
-      $("body").removeClass("overflow-hidden");
-
+  $(".bf-popup-close").on("click", function () {
+    $("body").removeClass("overflow-hidden");
   });
 
   App = {
@@ -68,8 +63,8 @@ $(document).ready(function () {
         }
 
         console.log("name", currentItem.name);
-       
-        var pathname = window.location.pathname.split( '/' );
+
+        var pathname = window.location.pathname.split("/");
         console.log("pathname", pathname[1]);
         if (
           pathname[1] !== "black-friday" &&
@@ -82,22 +77,20 @@ $(document).ready(function () {
           pathname[1] !== "positioning-and-lead-gen" &&
           pathname[1] !== "carousel-design" &&
           pathname[1] !== "design-thinking-guidebook" &&
-          pathname[1] !== "instagram-workshop"
+          pathname[1] !== "instagram-workshop" &&
+          window.location.pathname !==
+            "/pro-group/progroup-registration-checkout"
         ) {
-          
           // PopUp BF
           if (currentItem.name == "dropBF") {
+            console.log("IF bfpopup: ", getCookie("bfpopup"));
+            if (!getCookie("bfpopup")) {
+              $(".bf-popup-wrapper").addClass("active");
+              $("body").addClass("overflow-hidden");
 
-              console.log("IF bfpopup: ", getCookie("bfpopup"))
-              if (!getCookie("bfpopup"))
-              {
-                  
-                  $(".bf-popup-wrapper").addClass("active");
-                  $("body").addClass("overflow-hidden");
-                 
-                  setCookie("bfpopup", true, 1);
-                  console.log("ON bfpopup: ", getCookie("bfpopup"))
-              }
+              setCookie("bfpopup", true, 1);
+              console.log("ON bfpopup: ", getCookie("bfpopup"));
+            }
           }
         }
       }
