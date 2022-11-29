@@ -34,19 +34,19 @@ $(document).ready(function () {
         //console.log("dateCurrent1",moment().format("YYYY-MM-DDTHH:mm Z"));
         if (globalDateTime) dateCurrent = new moment(globalDateTime).utc();
 
-        console.log("dateCurrent", dateCurrent.format("YYYY-MM-DDTHH:mm Z"));
+        // console.log("dateCurrent", dateCurrent.format("YYYY-MM-DDTHH:mm Z"));
         //console.log("dateCurrent3", dateCurrent3.format("YYYY-MM-DDTHH:mm Z"));
 
         var currentItemDateFrom = new moment(currentItem.dateFrom).utc();
-        console.log(
+        /*  console.log(
           "currentItemDateFrom",
           currentItemDateFrom.format("YYYY-MM-DDTHH:mm Z")
         );
-
+*/
         //Si hoy es menor a fecha desde sigo con el otro elemento
         if (dateCurrent < currentItemDateFrom) continue;
 
-        console.log("currentIndex", currentIndex);
+        //console.log("currentIndex", currentIndex);
         //console.log("nextIndex", nextIndex);
         //console.log("configItems.items.length", configItems.items.length);
 
@@ -89,10 +89,20 @@ $(document).ready(function () {
         ) {
           $(".bf-section-banners").removeClass("hidden");
           $("#bf_banner_bf").removeClass("hidden");
+
           $("#bf_banner_drops").addClass("hidden");
+          $("#bf_banner_vault").addClass("hidden");
         } else if (currentItem.name.includes("drop")) {
           $(".bf-section-banners").removeClass("hidden");
           $("#bf_banner_drops").removeClass("hidden");
+
+          $("#bf_banner_bf").addClass("hidden");
+          $("#bf_banner_vault").addClass("hidden");
+        } else if (currentItem.name == "The Workshop Vault") {
+          $(".bf-section-banners").removeClass("hidden");
+          $("#bf_banner_vault").removeClass("hidden");
+
+          $("#bf_banner_drops").addClass("hidden");
           $("#bf_banner_bf").addClass("hidden");
         }
         // }
