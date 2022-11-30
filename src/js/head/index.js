@@ -373,6 +373,7 @@ globalThis.configItems = {
         "#bf21_BeforeDrops",
         ".bf-section-banners",
         ".bf21_mainsaleevent",
+        "#bf21_Faq_01",
       ],
       cssItems: [
         { id: ".b-nav-logo-embed", key: "color", value: "black" },
