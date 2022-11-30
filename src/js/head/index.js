@@ -23,7 +23,7 @@ globalThis.datesBF = {
   drop3: "2022-11-21T14:30:00+0000",
   dropBFS: "2022-11-23T14:30:00+0000",
   drop4: "2022-11-28T14:30:00+0000",
-  drop5: "2022-11-30T14:30:00+0000",
+  drop5: "2022-11-30T15:15:00+0000",
   dropBFPS: "2022-12-02T07:59:00+0000",
 };
 
@@ -35,7 +35,7 @@ globalThis.datesEndCounterBF = {
   drop2: datesBF.drop23,
   drop23: datesBF.drop3,
   drop3: datesBF.dropBFS,
-  dropBFS: "2022-11-30T14:30:00+0000",
+  dropBFS: "2022-11-30T15:15:00+0000",
   drop4: "2022-12-02T07:59:00+0000",
 };
 
@@ -451,7 +451,7 @@ globalThis.itemsPopUp = {
       /* Not Show Pop UP */
       displayName: "BF End",
       name: "dropEnd",
-      dateFrom: "2022-11-30T14:30:00+0000",
+      dateFrom: "2022-11-30T15:15:00+0000",
     },
   ],
 };
