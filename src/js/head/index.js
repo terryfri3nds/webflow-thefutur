@@ -432,7 +432,12 @@ globalThis.configItems = {
       name: "Black Fridar Post Sale Page",
       dateFrom: datesBF.dropBFPS,
       showItems: ["#bf21__PostSale", "#bf22_AfterSaleTitle", "#bf21_Courses"],
-      hideItems: ["#bf21_BeforeDrops", "#bf21drops", "#bf22_SaleTitle"],
+      hideItems: [
+        "#bf21_BeforeDrops",
+        "#bf21drops",
+        "#bf22_SaleTitle",
+        "#bf21_Faq_01",
+      ],
     },
   ],
 };
