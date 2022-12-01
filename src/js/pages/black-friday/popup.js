@@ -109,9 +109,9 @@ $(document).ready(function () {
   };
 
   if ($.urlParam("timetravel") == null) {
-    App.Run();
+    // App.Run();
   } else {
     console.log($.urlParam("timetravel"));
-    App.Run($.urlParam("timetravel"));
+    // App.Run($.urlParam("timetravel"));
   }
 });
