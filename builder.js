@@ -1,7 +1,7 @@
 require("esbuild").buildSync({
   entryPoints: [
 
-    'api-cms/src/cms/populate-external-data/index.ts',
+    //'api-cms/src/cms/populate-external-data/index.ts',
     "src/js/body/index.js",
     "src/js/head/index.js",
     "src/js/pages/black-friday/index.js",
@@ -21,7 +21,7 @@ require("esbuild").buildSync({
   ],
   bundle: true,
   minify: true,
-  sourcemap: true,
+  sourcemap: false,
   outExtension: { ".js": ".min.js", ".css": ".min.css" },
  //target: ["chrome58", "firefox57", "safari11", "edge16"],
   outdir: "dist",
