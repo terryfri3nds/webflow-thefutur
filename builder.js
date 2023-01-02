@@ -1,7 +1,7 @@
 require("esbuild").buildSync({
   entryPoints: [
 
-    //'api-cms/src/cms/populate-external-data/index.ts',
+    'api-cms/src/cms/populate/index.ts',
     "src/js/body/index.js",
     "src/js/head/index.js",
     "src/js/pages/black-friday/index.js",
