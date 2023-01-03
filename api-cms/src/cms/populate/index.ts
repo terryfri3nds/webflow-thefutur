@@ -227,7 +227,7 @@ const fetchCourses = async () => {
         "type-of-content": "20f8728e97dc879b0ded15ad14c1bb74"
       },
       "sort":[
-        "published-on"
+        "-release-date"
       ]
     });
     var requestOptions = {
