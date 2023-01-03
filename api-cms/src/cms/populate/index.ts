@@ -195,7 +195,7 @@ const fetchCourses = async () => {
       body: payload
     };
 
-    const response = await fetch('http://localhost:3001/api/collection/637d45fe861d643e974f7e2c/items', requestOptions);
+    const response = await fetch('https://api-webflow.fri3nds.com/api/collection/637d45fe861d643e974f7e2c/items', requestOptions);
    
     const json = await response.json();
    
@@ -236,7 +236,7 @@ const fetchCourses = async () => {
       body: payload
     };
 
-    const response = await fetch('http://localhost:3001/api/collection/637d45fe861d641e554f7f2b/items', requestOptions);
+    const response = await fetch('https://api-webflow.fri3nds.com/api/collection/637d45fe861d641e554f7f2b/items', requestOptions);
    
     const json = await response.json();
    
@@ -278,7 +278,7 @@ const fetchCourses = async () => {
       body: payload
     };
 
-    const response = await fetch('http://localhost:3001/api/collection/637d45fe861d641e554f7f2b/items', requestOptions);
+    const response = await fetch('https://api-webflow.fri3nds.com/api/collection/637d45fe861d641e554f7f2b/items', requestOptions);
    
     const json = await response.json();
    console.log("json", json)
