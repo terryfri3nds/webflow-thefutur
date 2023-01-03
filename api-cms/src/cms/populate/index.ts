@@ -9,7 +9,7 @@ import type { Product } from './types';
    'cmsload',
    async (listInstances: CMSList[]) => {
     console.log("listInstances", listInstances)
-    Promise.all([loadCourses(listInstances),loadVideos(listInstances)/*,loadPodcast(listInstances)*/])
+    Promise.all([loadCourses(listInstances),loadVideos(listInstances),loadPodcast(listInstances)])
     // await loadCourses(listInstances);
  
      //await loadVideos(listInstances);
@@ -195,7 +195,7 @@ const fetchCourses = async () => {
       body: payload
     };
 
-    const response = await fetch('https://api-webflow.fri3nds.com/api/collection/637d45fe861d643e974f7e2c/items', requestOptions);
+    const response = await fetch('https://api-webflow.fri3nds.com/api/courses/637d45fe861d643e974f7e2c/items', requestOptions);
    
     const json = await response.json();
    
@@ -227,7 +227,7 @@ const fetchCourses = async () => {
         "type-of-content": "20f8728e97dc879b0ded15ad14c1bb74"
       },
       "sort":[
-        "published-on"
+        "-release-date"
       ]
     });
     var requestOptions = {
@@ -236,7 +236,8 @@ const fetchCourses = async () => {
       body: payload
     };
 
-    const response = await fetch('https://api-webflow.fri3nds.com/api/collection/637d45fe861d641e554f7f2b/items', requestOptions);
+    const response = await fetch('http://localhost:3000/api/podcasts/637d45fe861d641e554f7f2b/items', requestOptions);
+    //const response = await fetch('https://api-webflow.fri3nds.com/api/collection/637d45fe861d641e554f7f2b/items', requestOptions);
    
     const json = await response.json();
    
@@ -277,8 +278,8 @@ const fetchCourses = async () => {
       headers,
       body: payload
     };
-
-    const response = await fetch('https://api-webflow.fri3nds.com/api/collection/637d45fe861d641e554f7f2b/items', requestOptions);
+    const response = await fetch('http://localhost:3000/api/videos/637d45fe861d641e554f7f2b/items', requestOptions);
+    //const response = await fetch('https://api-webflow.fri3nds.com/api/collection/637d45fe861d641e554f7f2b/items', requestOptions);
    
     const json = await response.json();
    console.log("json", json)
