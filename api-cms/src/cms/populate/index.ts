@@ -9,7 +9,7 @@ import type { Product } from './types';
    'cmsload',
    async (listInstances: CMSList[]) => {
     console.log("listInstances", listInstances)
-    Promise.all([loadCourses(listInstances),loadVideos(listInstances)/*,loadPodcast(listInstances)*/])
+    Promise.all([loadCourses(listInstances),loadVideos(listInstances),loadPodcast(listInstances)])
     // await loadCourses(listInstances);
  
      //await loadVideos(listInstances);
