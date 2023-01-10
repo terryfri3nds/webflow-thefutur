@@ -9,7 +9,7 @@ import type { Product } from './types';
    'cmsload',
    async (listInstances: CMSList[]) => {
     console.log("listInstances", listInstances)
-    Promise.all([loadCourses(listInstances, 1),loadVideos(listInstances),loadPodcast(listInstances)])
+    Promise.all([loadCourses("courses-wrap_1", listInstances, 1),loadVideos(listInstances, 1),loadPodcast(listInstances, 1)])
     // await loadCourses(listInstances);
  
      //await loadVideos(listInstances);
@@ -54,17 +54,17 @@ import type { Product } from './types';
   },
 ]);
 */
-async function loadCourses(listInstances: CMSList[], limit: Number, offset = 0)
+async function loadCourses(wrapper: String, listInstances: CMSList[], limit: Number, offset = 0)
 {
    // Get the list instance
-   const [ listCourses ] = listInstances.filter(s => s != null && s.list != null && s.list.className.includes("courses-list"));
+   const [ listCourses ] = listInstances.filter(s => s != null && s.list != null && s.wrapper.className.includes(wrapper));
    console.log("loadCourses", listCourses)
    // Save a copy of the template
    const [firstItem] = listCourses.items;
    const itemTemplateElement = firstItem.element;
 
    // Fetch external data
-   const courses = await fetchCourses(limit, offset);
+   const courses = await fetchCourses(wrapper, limit, offset);
    console.log("courses", courses)
 
    // Remove existing items
@@ -76,8 +76,8 @@ async function loadCourses(listInstances: CMSList[], limit: Number, offset = 0)
    // Populate the list
    listCourses.addItems(newItems).then(function(){
 
-     const coursesId = document.getElementsByClassName('courses_one') as HTMLCollection | null;
-     const coursesLoadingId = document.getElementsByClassName('loading-cards_one') as HTMLCollection | null;
+     const coursesId = document.getElementsByClassName(wrapper) as HTMLCollection | null;
+     const coursesLoadingId = document.getElementsByClassName('loading-' + wrapper) as HTMLCollection | null;
      if (coursesLoadingId != null) {
        coursesLoadingId[0].classList.add('hidden');
      }
@@ -89,10 +89,10 @@ async function loadCourses(listInstances: CMSList[], limit: Number, offset = 0)
 }
 
 
-async function loadVideos(listInstances: CMSList[])
+async function loadVideos(listInstances: CMSList[], limit: Number, offset = 0)
 {
    // Get the list instance
-   const [ listVideos ] = listInstances.filter(s => s != null && s.list != null && s.list.id == "videos");
+   const [ listVideos ] = listInstances.filter(s => s != null && s.list != null && s.list.id == "videos-list");
    console.log("loadVideos", listVideos)
    console.log("listVideos.items", listVideos.items)
    // Save a copy of the template
@@ -100,7 +100,7 @@ async function loadVideos(listInstances: CMSList[])
    const itemTemplateElement = firstItem.element;
 
    // Fetch external data
-   const videos = await fetchVideos();
+   const videos = await fetchVideos("video-list", limit, offset);
    console.log("videos", videos)
 
    // Remove existing items
@@ -127,17 +127,17 @@ async function loadVideos(listInstances: CMSList[])
 }
 
 
-async function loadPodcast(listInstances: CMSList[])
+async function loadPodcast(listInstances: CMSList[], limit: Number, offset = 0)
 {
    // Get the list instance
-   const [ listVideos ] = listInstances.filter(s => s != null && s.list != null && s.list.id == "podcasts");
+   const [ listVideos ] = listInstances.filter(s => s != null && s.list != null && s.list.id == "podcasts-list");
    console.log("loadPodcast", listVideos)
    // Save a copy of the template
    const [firstItem] = listVideos.items;
    const itemTemplateElement = firstItem.element;
 
    // Fetch external data
-   const podcasts = await fetchPodcast();
+   const podcasts = await fetchPodcast("podcasts-list", limit, offset);
    console.log("podcasts", podcasts)
 
    // Remove existing items
@@ -167,10 +167,10 @@ async function loadPodcast(listInstances: CMSList[])
 
 
 /**
- * Fetches courses from Fake Store API.
+ * Fetches courses from webflow cms API.
  * @returns An array of {@link Product}.
  */
-const fetchCourses = async (limit: Number, offset: Number) => {
+const fetchCourses = async (list: String,limit: Number, offset: Number) => {
   try 
   {
     const headers = new Headers ({ 
@@ -195,7 +195,7 @@ const fetchCourses = async (limit: Number, offset: Number) => {
       body: payload
     };
 
-    var endpoint = 'https://w-api-cms.onrender.com/api/courses/637d45fe861d643e974f7e2c/items';
+    var endpoint = 'https://w-api-cms.onrender.com/api/' + list + '/637d45fe861d643e974f7e2c/items';
 
     if (limit != 0 || limit != undefined)
     {
@@ -221,10 +221,10 @@ const fetchCourses = async (limit: Number, offset: Number) => {
 };
 
 /**
- * Fetches courses from Fake Store API.
- * @returns An array of {@link Product}.
+ * Fetches courses from webflow cms API.
+ * @returns An array of {@link Content}.
  */
- const fetchPodcast = async () => {
+ const fetchPodcast = async (list: String,limit: Number, offset: Number) => {
   try 
   {
     const headers = new Headers ({ 
@@ -248,9 +248,20 @@ const fetchCourses = async (limit: Number, offset: Number) => {
       body: payload
     };
 
-    //const response = await fetch('http://localhost:3000/api/podcasts/637d45fe861d641e554f7f2b/items', requestOptions);
-    const response = await fetch('https://w-api-cms.onrender.com/api/podcasts/637d45fe861d641e554f7f2b/items/limit/20', requestOptions);
-   
+    var endpoint = 'https://w-api-cms.onrender.com/api/' + list + '/637d45fe861637d45fe861d641e554f7f2bd643e974f7e2c/items';
+
+    if (limit != 0 || limit != undefined)
+    {
+      endpoint += "/limit/" + limit;
+    }
+
+    if (offset != 0 || offset != undefined)
+    {
+      endpoint += "/offset/" + offset;
+    }
+
+    const response = await fetch(endpoint, requestOptions);
+
     const json = await response.json();
    
     const data: Content[] = json["data"];
@@ -263,10 +274,10 @@ const fetchCourses = async (limit: Number, offset: Number) => {
 };
 
 /**
- * Fetches videos from Fake Store API.
- * @returns An array of {@link Product}.
+ * Fetches videos from webflow cms API
+ * @returns An array of {@link Content}.
  */
- const fetchVideos = async () => {
+ const fetchVideos = async (list: String,limit: Number, offset: Number) => {
   try 
   {
     const headers = new Headers ({ 
@@ -290,9 +301,22 @@ const fetchCourses = async (limit: Number, offset: Number) => {
       headers,
       body: payload
     };
-    //const response = await fetch('http://localhost:3000/api/videos/637d45fe861d641e554f7f2b/items', requestOptions);
-    const response = await fetch('https://w-api-cms.onrender.com/api/videos/637d45fe861d641e554f7f2b/items/limit/20', requestOptions);
-   
+
+
+    var endpoint = 'https://w-api-cms.onrender.com/api/' + list + '/637d45fe861d641e554f7f2b/items';
+
+    if (limit != 0 || limit != undefined)
+    {
+      endpoint += "/limit/" + limit;
+    }
+
+    if (offset != 0 || offset != undefined)
+    {
+      endpoint += "/offset/" + offset;
+    }
+
+    const response = await fetch(endpoint, requestOptions);
+  
     const json = await response.json();
    console.log("json", json)
     const data: Content[] = json["data"];
