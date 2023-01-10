@@ -99,7 +99,7 @@ async function loadCourses(wrapper: String, listInstances: CMSList[], limit: Num
 async function loadVideos(wrapper: String, listInstances: CMSList[], limit: Number, offset = 0)
 {
    // Get the list instance
-   const [ listVideos ] = listInstances.filter(s => s != null && s.list != null && s.list.id == wrapper);
+   const [ listVideos ] = listInstances.filter(s => s != null && s.list != null && s.wrapper.className.includes(wrapper));
    console.log("loadVideos", listVideos)
    console.log("listVideos.items", listVideos.items)
    // Save a copy of the template
@@ -139,7 +139,7 @@ async function loadVideos(wrapper: String, listInstances: CMSList[], limit: Numb
 async function loadPodcast(wrapper: String, listInstances: CMSList[], limit: Number, offset = 0)
 {
    // Get the list instance
-   const [ listVideos ] = listInstances.filter(s => s != null && s.list != null && s.list.id == wrapper);
+   const [ listVideos ] = listInstances.filter(s => s != null && s.list != null && s.wrapper.className.includes(wrapper));
    console.log("loadPodcast", listVideos)
    // Save a copy of the template
    const [firstItem] = listVideos.items;
