@@ -12,8 +12,10 @@ import type { Product } from './types';
     Promise.all([
                 loadCourses("courses-wrap_1", listInstances, 1),
                 loadCourses("courses-wrap_2", listInstances, 20),
-                loadVideos(listInstances, 1),
-                loadPodcast(listInstances, 1)])
+                loadVideos("videos-wrap_1", listInstances, 1),
+                loadVideos("videos-wrap_2", listInstances, 20),
+                loadPodcast("podcast-wrap_1", listInstances, 1),
+                loadPodcast("podcast-wrap_2", listInstances, 20)])
     // await loadCourses(listInstances);
  
      //await loadVideos(listInstances);
@@ -79,25 +81,25 @@ async function loadCourses(wrapper: String, listInstances: CMSList[], limit: Num
 
    // Populate the list
    listCourses.addItems(newItems).then(function(){
-     const coursesId = document.getElementsByClassName(wrapper) as HTMLCollection | null;
+     const wrapperShow = document.getElementsByClassName(wrapper) as HTMLCollection | null;
     
-     const coursesLoadingId = document.getElementsByClassName('loading-' + wrapper) as HTMLCollection | null;
-     console.log('loading-', coursesLoadingId)
-     if (coursesLoadingId != null) {
-       coursesLoadingId[0].classList.add('hidden');
+     const loadingHidden = document.getElementsByClassName('loading-' + wrapper) as HTMLCollection | null;
+     console.log('loading-', loadingHidden)
+     if (loadingHidden != null) {
+      loadingHidden[0].classList.add('hidden');
      }
-     if (coursesId != null) {
-       coursesId[0].classList.remove('hidden');
+     if (wrapperShow != null) {
+      wrapperShow[0].classList.remove('hidden');
      }
      //Webflow.require('ix2').init() //---> reinicializa la interaccion
    });
 }
 
 
-async function loadVideos(listInstances: CMSList[], limit: Number, offset = 0)
+async function loadVideos(wrapper: String, listInstances: CMSList[], limit: Number, offset = 0)
 {
    // Get the list instance
-   const [ listVideos ] = listInstances.filter(s => s != null && s.list != null && s.list.id == "videos-list");
+   const [ listVideos ] = listInstances.filter(s => s != null && s.list != null && s.list.id == wrapper);
    console.log("loadVideos", listVideos)
    console.log("listVideos.items", listVideos.items)
    // Save a copy of the template
@@ -105,7 +107,7 @@ async function loadVideos(listInstances: CMSList[], limit: Number, offset = 0)
    const itemTemplateElement = firstItem.element;
 
    // Fetch external data
-   const videos = await fetchVideos("video-list", limit, offset);
+   const videos = await fetchVideos(wrapper, limit, offset);
    console.log("videos", videos)
 
    // Remove existing items
@@ -117,14 +119,16 @@ async function loadVideos(listInstances: CMSList[], limit: Number, offset = 0)
    // Populate the list
    listVideos.addItems(newItems).then(function(){
 
-     const coursesId = document.getElementById('coursesId') as HTMLElement | null;
-     const coursesLoadingId = document.getElementById('coursesLoadingId') as HTMLElement | null;
-     if (coursesLoadingId != null) {
-       coursesLoadingId.classList.add('hidden');
-     }
-     if (coursesId != null) {
-       coursesId.classList.remove('hidden');
-     }
+    const wrapperShow = document.getElementsByClassName(wrapper) as HTMLCollection | null;
+    
+    const loadingHidden = document.getElementsByClassName('loading-' + wrapper) as HTMLCollection | null;
+    console.log('loading-', loadingHidden)
+    if (loadingHidden != null) {
+     loadingHidden[0].classList.add('hidden');
+    }
+    if (wrapperShow != null) {
+     wrapperShow[0].classList.remove('hidden');
+    }
 
      slider1();
      //Webflow.require('ix2').init() //---> reinicializa la interaccion
@@ -132,17 +136,17 @@ async function loadVideos(listInstances: CMSList[], limit: Number, offset = 0)
 }
 
 
-async function loadPodcast(listInstances: CMSList[], limit: Number, offset = 0)
+async function loadPodcast(wrapper: String, listInstances: CMSList[], limit: Number, offset = 0)
 {
    // Get the list instance
-   const [ listVideos ] = listInstances.filter(s => s != null && s.list != null && s.list.id == "podcasts-list");
+   const [ listVideos ] = listInstances.filter(s => s != null && s.list != null && s.list.id == wrapper);
    console.log("loadPodcast", listVideos)
    // Save a copy of the template
    const [firstItem] = listVideos.items;
    const itemTemplateElement = firstItem.element;
 
    // Fetch external data
-   const podcasts = await fetchPodcast("podcasts-list", limit, offset);
+   const podcasts = await fetchPodcast(wrapper, limit, offset);
    console.log("podcasts", podcasts)
 
    // Remove existing items
@@ -154,14 +158,16 @@ async function loadPodcast(listInstances: CMSList[], limit: Number, offset = 0)
    // Populate the list
    listVideos.addItems(newItems).then(function(){
 
-     const coursesId = document.getElementById('coursesId') as HTMLElement | null;
-     const coursesLoadingId = document.getElementById('coursesLoadingId') as HTMLElement | null;
-     if (coursesLoadingId != null) {
-       coursesLoadingId.classList.add('hidden');
-     }
-     if (coursesId != null) {
-       coursesId.classList.remove('hidden');
-     }
+    const wrapperShow = document.getElementsByClassName(wrapper) as HTMLCollection | null;
+    
+    const loadingHidden = document.getElementsByClassName('loading-' + wrapper) as HTMLCollection | null;
+    console.log('loading-', loadingHidden)
+    if (loadingHidden != null) {
+     loadingHidden[0].classList.add('hidden');
+    }
+    if (wrapperShow != null) {
+     wrapperShow[0].classList.remove('hidden');
+    }
      //Webflow.require('ix2').init() //---> reinicializa la interaccion
    });
 }
