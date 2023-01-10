@@ -310,7 +310,7 @@ const createItem = (product: Product, templateElement: HTMLDivElement) => {
   const price = newItem.querySelector<HTMLParagraphElement>('[data-element="price"]');
   const author = newItem.querySelector<HTMLParagraphElement>('[data-element="author"]');
   const description = newItem.querySelector<HTMLParagraphElement>('[data-element="description"]');
-  const url = newItem.querySelector<HTMLParagraphElement>('[data-element="url"]');
+  const url = newItem.querySelector<HTMLAnchorElement>('[data-element="url"]');
 
   
   if (image) image.src = "";
@@ -318,7 +318,7 @@ const createItem = (product: Product, templateElement: HTMLDivElement) => {
   if (price) price.textContent = "";
   if (author) author.textContent = "";
   if (description) description.textContent = "";
-  if (url) url.textContent = "";
+  if (url) url.href = "";
 
   // Populate inner elements
   if (image && product['thumbnail-square'] != undefined) image.src = product['thumbnail-square'].url;
@@ -326,7 +326,7 @@ const createItem = (product: Product, templateElement: HTMLDivElement) => {
   if (price) price.textContent = product.price;
   if (author) author.textContent = product.instructor.name;
   if (description) description.textContent = product['short-description'];
-  if (url) url.textContent = "/course/" + product.slug;
+  if (url) url.href = "/course/" + product.slug;
 
   return newItem;
 };
@@ -348,20 +348,20 @@ const createItem = (product: Product, templateElement: HTMLDivElement) => {
   const title = newItem.querySelector<HTMLHeadingElement>('[data-element="title"]');
   const author = newItem.querySelector<HTMLParagraphElement>('[data-element="author"]');
   const episode_title_podcast = newItem.querySelector<HTMLParagraphElement>('[data-element="episode-title-podcast"]');
-  const url = newItem.querySelector<HTMLParagraphElement>('[data-element="url"]');
+  const url = newItem.querySelector<HTMLAnchorElement>('[data-element="url"]');
 
   // Populate inner elements
   if (image) image.src = "";
   if (episode_title_podcast) episode_title_podcast.textContent = "";
   if (title) title.textContent = "";
   if (author) author.textContent = "";
-  if (url) url.textContent = "";
+  if (url) url.href = "";
 
   if (image && content['thumbnail'] != undefined) image.src = content['thumbnail'].url;
   if (title) title.textContent = content.name;
   if (episode_title_podcast && content['episode-title-podcast'] != undefined) episode_title_podcast.textContent = content["episode-title-podcast"];
   if (author && content['choose-director-video-producer-podcast-or-author-blog-for-the-item'] != undefined) author.textContent = content["choose-director-video-producer-podcast-or-author-blog-for-the-item"].name;
-  if (url) url.textContent = "/content/" + content.slug;
+  if (url) url.href = "/content/" + content.slug;
 
   //if (price) price.textContent = product.price;
   //if (author) author.textContent = product.author;
