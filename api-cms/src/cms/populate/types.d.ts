@@ -7,6 +7,7 @@ export interface Product {
   "thumbnail-16x9": ImageField;
   "thumbnail-square": ImageField;
   rating: Rating;
+  slug: string;
 }
 
 
@@ -22,6 +23,7 @@ export interface Metadata {
   thumbnail_url: string;
   description: string;
   author_name: string;
+ 
 }
 
 export interface People {
@@ -30,7 +32,8 @@ export interface People {
   photo: ImageField;
   "thumbnail-photo-small": ImageField;  
   "header-photo": ImageField;
-  "short-bio": string
+  "short-bio": string;
+  slug: string;
 }
 
 export interface Content {
@@ -54,6 +57,7 @@ export interface Content {
   "url-2-text-podcast": string;
   "mp3-url-podcast": string;
   "choose-director-video-producer-podcast-or-author-blog-for-the-item" : People;
+  slug: string;
 }
 
 export interface VideoField {
