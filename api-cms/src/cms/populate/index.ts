@@ -9,7 +9,7 @@ import type { Product } from './types';
    'cmsload',
    async (listInstances: CMSList[]) => {
     console.log("listInstances", listInstances)
-    Promise.all([loadCourses(listInstances),loadVideos(listInstances),loadPodcast(listInstances)])
+    Promise.all([loadCourses(listInstances, 1),loadVideos(listInstances),loadPodcast(listInstances)])
     // await loadCourses(listInstances);
  
      //await loadVideos(listInstances);
@@ -54,17 +54,17 @@ import type { Product } from './types';
   },
 ]);
 */
-async function loadCourses(listInstances: CMSList[])
+async function loadCourses(listInstances: CMSList[], limit: Number, offset: 0)
 {
    // Get the list instance
-   const [ listCourses ] = listInstances.filter(s => s != null && s.list != null && s.list.id == "courses");
+   const [ listCourses ] = listInstances.filter(s => s != null && s.list != null && s.list.className.includes("courses-list"));
    console.log("loadCourses", listCourses)
    // Save a copy of the template
    const [firstItem] = listCourses.items;
    const itemTemplateElement = firstItem.element;
 
    // Fetch external data
-   const courses = await fetchCourses();
+   const courses = await fetchCourses(limit, offset);
    console.log("courses", courses)
 
    // Remove existing items
@@ -170,7 +170,7 @@ async function loadPodcast(listInstances: CMSList[])
  * Fetches courses from Fake Store API.
  * @returns An array of {@link Product}.
  */
-const fetchCourses = async () => {
+const fetchCourses = async (limit: Number, offset: Number) => {
   try 
   {
     const headers = new Headers ({ 
@@ -195,7 +195,19 @@ const fetchCourses = async () => {
       body: payload
     };
 
-    const response = await fetch('https://w-api-cms.onrender.com/api/courses/637d45fe861d643e974f7e2c/items/limit/20', requestOptions);
+    var endpoint = 'https://w-api-cms.onrender.com/api/courses/637d45fe861d643e974f7e2c/items';
+
+    if (limit != 0 || limit != undefined)
+    {
+      endpoint += "/limit/" + limit;
+    }
+
+    if (offset != 0 || offset != undefined)
+    {
+      endpoint += "/offset/" + offset;
+    }
+
+    const response = await fetch(endpoint, requestOptions);
    
     const json = await response.json();
    
