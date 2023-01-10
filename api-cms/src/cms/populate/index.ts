@@ -11,7 +11,7 @@ import type { Product } from './types';
     console.log("listInstances", listInstances)
     Promise.all([
                 loadCourses("courses-wrap_1", listInstances, 1),
-                loadCourses("courses-wrap_2", listInstances, 1)
+                loadCourses("courses-wrap_2", listInstances, 1),
                 loadVideos(listInstances, 1),
                 loadPodcast(listInstances, 1)])
     // await loadCourses(listInstances);
