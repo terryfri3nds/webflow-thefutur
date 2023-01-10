@@ -85,7 +85,7 @@ async function loadCourses(wrapper: String, listInstances: CMSList[], limit: Num
     
      const loadingHidden = document.getElementsByClassName('loading-' + wrapper) as HTMLCollection | null;
      console.log('loading-', loadingHidden)
-     if (loadingHidden != null) {
+     if (loadingHidden.length > 0) {
       loadingHidden[0].classList.add('hidden');
      }
      if (wrapperShow != null) {
@@ -123,7 +123,7 @@ async function loadVideos(wrapper: String, listInstances: CMSList[], limit: Numb
     
     const loadingHidden = document.getElementsByClassName('loading-' + wrapper) as HTMLCollection | null;
     console.log('loading-', loadingHidden)
-    if (loadingHidden != null) {
+    if (loadingHidden.length > 0) {
      loadingHidden[0].classList.add('hidden');
     }
     if (wrapperShow != null) {
@@ -162,7 +162,7 @@ async function loadPodcast(wrapper: String, listInstances: CMSList[], limit: Num
     
     const loadingHidden = document.getElementsByClassName('loading-' + wrapper) as HTMLCollection | null;
     console.log('loading-', loadingHidden)
-    if (loadingHidden != null) {
+    if (loadingHidden.length > 0) {
      loadingHidden[0].classList.add('hidden');
     }
     if (wrapperShow != null) {
