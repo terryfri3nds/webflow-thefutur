@@ -259,7 +259,7 @@ const fetchCourses = async (list: String,limit: Number, offset: Number) => {
       body: payload
     };
 
-    var endpoint = 'https://w-api-cms.onrender.com/api/' + list + '/637d45fe861637d45fe861d641e554f7f2bd643e974f7e2c/items';
+    var endpoint = 'https://w-api-cms.onrender.com/api/' + list + '/637d45fe861d641e554f7f2b/items';
 
     if (limit != 0 || limit != undefined)
     {
