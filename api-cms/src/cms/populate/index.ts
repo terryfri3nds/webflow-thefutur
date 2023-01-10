@@ -76,13 +76,13 @@ async function loadCourses(listInstances: CMSList[])
    // Populate the list
    listCourses.addItems(newItems).then(function(){
 
-     const coursesId = document.getElementById('coursesId') as HTMLElement | null;
-     const coursesLoadingId = document.getElementById('coursesLoadingId') as HTMLElement | null;
+     const coursesId = document.getElementsByClassName('courses_one') as HTMLCollection | null;
+     const coursesLoadingId = document.getElementsByClassName('loading-cards_one') as HTMLCollection | null;
      if (coursesLoadingId != null) {
-       coursesLoadingId.classList.add('hidden');
+       coursesLoadingId[0].classList.add('hidden');
      }
      if (coursesId != null) {
-       coursesId.classList.remove('hidden');
+       coursesId[0].classList.remove('hidden');
      }
      //Webflow.require('ix2').init() //---> reinicializa la interaccion
    });
