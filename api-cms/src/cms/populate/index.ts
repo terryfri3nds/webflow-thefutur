@@ -76,8 +76,9 @@ async function loadCourses(wrapper: String, listInstances: CMSList[], limit: Num
    // Populate the list
    listCourses.addItems(newItems).then(function(){
      const coursesId = document.getElementsByClassName(wrapper) as HTMLCollection | null;
-     console.log('loading-' + wrapper)
+    
      const coursesLoadingId = document.getElementsByClassName('loading-' + wrapper) as HTMLCollection | null;
+     console.log('loading-', coursesLoadingId)
      if (coursesLoadingId != null) {
        coursesLoadingId[0].classList.add('hidden');
      }
