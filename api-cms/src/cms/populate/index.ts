@@ -54,7 +54,7 @@ import type { Product } from './types';
   },
 ]);
 */
-async function loadCourses(listInstances: CMSList[], limit: Number, offset: 0)
+async function loadCourses(listInstances: CMSList[], limit: Number, offset = 0)
 {
    // Get the list instance
    const [ listCourses ] = listInstances.filter(s => s != null && s.list != null && s.list.className.includes("courses-list"));
