@@ -138,7 +138,7 @@ const createTestimonialItem = (item: Testimonial, templateElement: HTMLDivElemen
   if (title) title.textContent = item.name;
   if (testimonial) testimonial.textContent = item.testimonial;
   if (author && item['person-reference'] != undefined) author.textContent =  item['person-reference'].name;
-  if (masterMindTestimonial) masterMindTestimonial.textContent = item['master-mind-testimonial'];
+  if (masterMindTestimonial) masterMindTestimonial.innerHTML = item['master-mind-testimonial'];
   if (url) url.href = "/testimonials/" + item.slug;
 
   return newItem;
