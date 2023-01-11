@@ -40,7 +40,7 @@ async function loadCourses(wrapper: String, listInstances: CMSList[], limit: Num
         "-name": ["Introduction to UX Design", "UX Fundamentals", "Business Bootcamp"] 
       },
       "sort":[
-        "-published-n"
+        "-created-on"
       ]
    });
    const courses = await fetchCourses(wrapper, payload, limit, offset);

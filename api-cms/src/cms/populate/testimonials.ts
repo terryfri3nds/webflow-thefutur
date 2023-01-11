@@ -34,7 +34,7 @@ async function loadTestimonials(wrapper: String, listInstances: CMSList[], limit
         "_draft": false
       },
       "sort":[
-        "-published-on"
+        "-created-on"
       ]
    });
    const testimonials = await fetchTestimonials(wrapper, payload, limit, offset);

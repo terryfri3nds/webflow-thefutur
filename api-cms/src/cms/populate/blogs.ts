@@ -35,7 +35,7 @@ async function loadBlogs(wrapper: String, listInstances: CMSList[], limit: Numbe
         "type-of-content": "bba1a134294500b34cf02a16789705f4"
       },
       "sort":[
-        "-published-on"
+        "-created-on"
       ]
    });
    const blogs = await fetchBlogs(wrapper, payload, limit, offset);
