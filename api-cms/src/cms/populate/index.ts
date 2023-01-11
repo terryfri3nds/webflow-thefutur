@@ -15,39 +15,9 @@ import type { Product } from './types';
                 loadVideos("videos-wrap_1", listInstances, 1),
                 loadVideos("videos-wrap_2", listInstances, 20),
                 loadPodcast("podcast-wrap_1", listInstances, 1),
-                loadPodcast("podcast-wrap_2", listInstances, 20)])
-    // await loadCourses(listInstances);
- 
-     //await loadVideos(listInstances);
-
-     //await loadPodcast(listInstances);
-     
- 
-     // Get the template filter
-   /* const filterTemplateElement = filtersInstance.form.querySelector<HTMLLabelElement>('[data-element="filter"]');
-     if (!filterTemplateElement) return;
- 
-     // Get the parent wrapper
-     const filtersWrapper = filterTemplateElement.parentElement;
-     if (!filtersWrapper) return;
- 
-     // Remove the template from the DOMß
-     filterTemplateElement.remove();
- 
-     // Collect the categories
-     const categories = collectCategories(products);
- 
-     // Create the new filters and append the to the parent wrapper
-     for (const category of categories) {
-       const newFilter = createFilter(category, filterTemplateElement);
-       if (!newFilter) continue;
- 
-       filtersWrapper.append(newFilter);
-     }
- 
-     // Sync the CMSFilters instance with the new created filters
-     filtersInstance.storeFiltersData();
-     */
+                loadPodcast("podcast-wrap_2", listInstances, 20)
+              ])
+  
    },
  ]);
 
@@ -70,7 +40,18 @@ async function loadCourses(wrapper: String, listInstances: CMSList[], limit: Num
    const itemTemplateElement = firstItem.element;
 
    // Fetch external data
-   const courses = await fetchCourses(wrapper, limit, offset);
+   var payload = JSON.stringify({
+      "query": {
+        "featured": true,
+        "_archived": false,
+        "_draft": false,
+        "-name": ["Introduction to UX Design", "UX Fundamentals", "Business Bootcamp"] 
+      },
+      "sort":[
+        "-published-n"
+      ]
+   });
+   const courses = await fetchCourses(wrapper, payload, limit, offset);
    console.log("courses", courses)
 
    // Remove existing items
@@ -107,7 +88,18 @@ async function loadVideos(wrapper: String, listInstances: CMSList[], limit: Numb
    const itemTemplateElement = firstItem.element;
 
    // Fetch external data
-   const videos = await fetchVideos(wrapper, limit, offset);
+   var payload = JSON.stringify({
+      "query": {
+        "_archived": false,
+        "_draft": false,
+        "tags": ["637d45fe861d6402274f8bda"],
+        "type-of-content": "ab5fdd205d97947450a63f18343c374c"
+      },
+      "sort":[
+        "-created-on"
+      ]
+  });
+   const videos = await fetchVideos(wrapper, payload, limit, offset);
    console.log("videos", videos)
 
    // Remove existing items
@@ -146,7 +138,17 @@ async function loadPodcast(wrapper: String, listInstances: CMSList[], limit: Num
    const itemTemplateElement = firstItem.element;
 
    // Fetch external data
-   const podcasts = await fetchPodcast(wrapper, limit, offset);
+   var payload = JSON.stringify({
+      "query": {
+        "_archived": false,
+        "_draft": false,
+        "type-of-content": "20f8728e97dc879b0ded15ad14c1bb74"
+      },
+      "sort":[
+        "-release-date"
+      ]
+  });
+   const podcasts = await fetchPodcast(wrapper, payload, limit, offset);
    console.log("podcasts", podcasts)
 
    // Remove existing items
@@ -173,15 +175,11 @@ async function loadPodcast(wrapper: String, listInstances: CMSList[], limit: Num
 }
 
 
-
-
-
-
 /**
  * Fetches courses from webflow cms API.
  * @returns An array of {@link Product}.
  */
-const fetchCourses = async (list: String,limit: Number, offset: Number) => {
+const fetchCourses = async (list: String, payload : String, limit: Number, offset: Number) => {
   try 
   {
     const headers = new Headers ({ 
@@ -189,17 +187,7 @@ const fetchCourses = async (list: String,limit: Number, offset: Number) => {
       "token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2NDE0NjU5OTAsImV4cCI6MTY3MzAwMTk5MCwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJSb2xlIjpbIk1hbmFnZXIiLCJQcm9qZWN0IEFkbWluaXN0cmF0b3IiXX0.Ak4VZ-YdIxtHVqDuZ7iRHbyR-L6C64n6W7fKCfVEi-8" 
     });
     
-    var payload = JSON.stringify({
-      "query": {
-        "featured": true,
-        "_archived": false,
-        "_draft": false,
-        "-name": ["Introduction to UX Design", "UX Fundamentals", "Business Bootcamp"] 
-      },
-      "sort":[
-        "-published-n"
-      ]
-    });
+  
     var requestOptions = {
       method: "POST",
       headers,
@@ -236,24 +224,15 @@ const fetchCourses = async (list: String,limit: Number, offset: Number) => {
  * Fetches courses from webflow cms API.
  * @returns An array of {@link Content}.
  */
- const fetchPodcast = async (list: String,limit: Number, offset: Number) => {
+ const fetchPodcast = async (list: String, payload: String, limit: Number, offset: Number) => {
   try 
   {
     const headers = new Headers ({ 
       'Content-Type': 'application/json' , 
       "token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2NDE0NjU5OTAsImV4cCI6MTY3MzAwMTk5MCwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJSb2xlIjpbIk1hbmFnZXIiLCJQcm9qZWN0IEFkbWluaXN0cmF0b3IiXX0.Ak4VZ-YdIxtHVqDuZ7iRHbyR-L6C64n6W7fKCfVEi-8" 
     });
-    
-    var payload = JSON.stringify({
-      "query": {
-        "_archived": false,
-        "_draft": false,
-        "type-of-content": "20f8728e97dc879b0ded15ad14c1bb74"
-      },
-      "sort":[
-        "-release-date"
-      ]
-    });
+  
+  
     var requestOptions = {
       method: "POST",
       headers,
@@ -290,7 +269,7 @@ const fetchCourses = async (list: String,limit: Number, offset: Number) => {
  * Fetches videos from webflow cms API
  * @returns An array of {@link Content}.
  */
- const fetchVideos = async (list: String,limit: Number, offset: Number) => {
+ const fetchVideos = async (list: String, payload : String, limit: Number, offset: Number) => {
   try 
   {
     const headers = new Headers ({ 
@@ -298,17 +277,7 @@ const fetchCourses = async (list: String,limit: Number, offset: Number) => {
       "token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE2NDE0NjU5OTAsImV4cCI6MTY3MzAwMTk5MCwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoianJvY2tldEBleGFtcGxlLmNvbSIsIkdpdmVuTmFtZSI6IkpvaG5ueSIsIlN1cm5hbWUiOiJSb2NrZXQiLCJFbWFpbCI6Impyb2NrZXRAZXhhbXBsZS5jb20iLCJSb2xlIjpbIk1hbmFnZXIiLCJQcm9qZWN0IEFkbWluaXN0cmF0b3IiXX0.Ak4VZ-YdIxtHVqDuZ7iRHbyR-L6C64n6W7fKCfVEi-8" 
     });
     
-    var payload = JSON.stringify({
-      "query": {
-        "_archived": false,
-        "_draft": false,
-        "tags": ["637d45fe861d6402274f8bda"],
-        "type-of-content": "ab5fdd205d97947450a63f18343c374c"
-      },
-      "sort":[
-        "-created-on"
-      ]
-    });
+   
     var requestOptions = {
       method: "POST",
       headers,
