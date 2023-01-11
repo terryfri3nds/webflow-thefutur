@@ -21,15 +21,7 @@ import type { Product } from './types';
    },
  ]);
 
-/*
- window.fsAttributes.push([
-  'cmsslider',
-  async (listInstances: CMSList[]) => {
-   console.log("listInstances", listInstances)
-   Promise.all([loadVideos(listInstances)/*,loadPodcast(listInstances)/])
-  },
-]);
-*/
+
 async function loadCourses(wrapper: String, listInstances: CMSList[], limit: Number, offset = 0)
 {
    // Get the list instance

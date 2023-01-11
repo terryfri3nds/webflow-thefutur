@@ -10,6 +10,20 @@ export interface Product {
   slug: string;
 }
 
+export interface Testimonial {
+  id: number;
+  name: string;
+  "quote-on-big-text": string;
+  "master-mind-testimonial": string;
+  "person-reference": People;
+  "personal-website": string;
+  slug: string;
+  "twitter-handle": string;
+  "tweet-post": string;
+  "link-to-tweet": string;
+  testimonial: string;
+}
+
 
 
 export interface Metadata {
