@@ -137,7 +137,7 @@ const createTestimonialItem = (item: Testimonial, templateElement: HTMLDivElemen
   // Populate inner elements
   if (title) title.textContent = item.name;
   if (testimonial) testimonial.textContent = item.testimonial;
-  if (author) author.textContent = item['person-reference'].name;
+  if (author && item['person-reference'] != undefined) author.textContent =  item['person-reference'].name;
   if (masterMindTestimonial) masterMindTestimonial.textContent = item['master-mind-testimonial'];
   if (url) url.href = "/testimonials/" + item.slug;
 
