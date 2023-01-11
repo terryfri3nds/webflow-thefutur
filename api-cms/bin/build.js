@@ -5,7 +5,14 @@ const buildDirectory = '../dist';
 const production = process.env.NODE_ENV === 'production';
 
 // Config entrypoint files
-const entryPoints = ['src/cms/populate/index.ts'];
+const entryPoints = [
+  'src/cms/populate/index.ts',
+  'src/cms/populate/courses.ts',
+  'src/cms/populate/videos.ts',
+  'src/cms/populate/podcasts.ts',
+  'src/cms/populate/blogs.ts',
+  'src/cms/populate/testimonials.ts'
+];
 
 /**
  * Default Settings
