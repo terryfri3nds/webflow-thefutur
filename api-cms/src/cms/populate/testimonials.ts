@@ -124,7 +124,7 @@ const createTestimonialItem = (item: Testimonial, templateElement: HTMLDivElemen
   const title = newItem.querySelector<HTMLHeadingElement>('[data-element="name"]');
   const testimonial = newItem.querySelector<HTMLParagraphElement>('[data-element="testimonial"]');
   const author = newItem.querySelector<HTMLParagraphElement>('[data-element="author"]');
-  const masterMindTestimonial = newItem.querySelector<HTMLParagraphElement>('[data-element="master-mind-testimonial"]');
+  const masterMindTestimonial = newItem.querySelector<HTMLDivElement>('[data-element="master-mind-testimonial"]');
   const url = newItem.querySelector<HTMLAnchorElement>('[data-element="url"]');
 
   
