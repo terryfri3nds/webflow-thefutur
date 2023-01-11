@@ -206,7 +206,8 @@ const fetchCourses = async (list: String,limit: Number, offset: Number) => {
       body: payload
     };
 
-    var endpoint = 'https://w-api-cms.onrender.com/api/' + list + '/637d45fe861d643e974f7e2c/items';
+    var collectionId = "63bddef3b4cbe6fad5eb6e33";
+    var endpoint = 'https://w-api-cms.onrender.com/api/' + list + '/' + collectionId +'/items';
 
     if (limit != 0 || limit != undefined)
     {
@@ -259,7 +260,8 @@ const fetchCourses = async (list: String,limit: Number, offset: Number) => {
       body: payload
     };
 
-    var endpoint = 'https://w-api-cms.onrender.com/api/' + list + '/637d45fe861d641e554f7f2b/items';
+    var collectionId = "63bddef3b4cbe6e3cbeb6df2";
+    var endpoint = 'https://w-api-cms.onrender.com/api/' + list + '/' + collectionId +'/items';
 
     if (limit != 0 || limit != undefined)
     {
@@ -313,9 +315,9 @@ const fetchCourses = async (list: String,limit: Number, offset: Number) => {
       body: payload
     };
 
-
-    var endpoint = 'https://w-api-cms.onrender.com/api/' + list + '/637d45fe861d641e554f7f2b/items';
-
+    var collectionId = "63bddef3b4cbe6e3cbeb6df2";
+    var endpoint = 'https://w-api-cms.onrender.com/api/' + list + '/' + collectionId +'/items';
+    
     if (limit != 0 || limit != undefined)
     {
       endpoint += "/limit/" + limit;
